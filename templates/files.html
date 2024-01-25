@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uploaded Files</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+  </head>
+  <body>
+    <div id="upload_file" class="uploaded_files_container">
+      <h2>Uploaded Files</h2>
+      <div class="files_list_container">
+        {% for file in files %} {% if file.endswith('.png') %}
+        <img
+          src="{{ url_for('static', filename='mediaFiles/' + file) }}"
+          alt="Image"
+          class="uploaded_img"
+        />
+        {% elif file.endswith('.mp4') %}
+        <video width="320" height="240" controls>
+          <source
+            src="{{ url_for('static', filename='mediaFiles/' + file) }}"
+            type="video/mp4"
+            class="uploaded_video"
+          />
+        </video>
+        {% elif file.endswith('.mp3') %}
+        <audio controls>
+          <source
+            src="{{ url_for('static', filename='mediaFiles/' + file) }}"
+            type="audio/mp3"
+            class="uploaded_audio"
+          />
+        </audio>
+        {% endif %} {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>

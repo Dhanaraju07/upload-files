@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uploading Files</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+  </head>
+  <body>
+    <div class="main_container">
+      <div class="upload_file_container">
+        <h1 class="upload_text">Upload a File</h1>
+        <p class="upload_text_desc">
+          Select a file to upload from your computer or device
+        </p>
+        <form action="/" method="POST" enctype="multipart/form-data">
+          <label class="label" for="file">
+            Choose File
+          </label>
+          <input type="file" name="file" id="file" size="60" />
+          <input type="submit" value="Upload" />
+        </form>
+        <button
+          class="form-control files_btn"
+          onclick="window.location.href='/files'"
+        >
+          See All Files
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
